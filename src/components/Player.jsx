@@ -10,7 +10,7 @@ export const Player = ({name, symbol}) => {
             {isEditing ? <input required type="text" value={name} /> : <span className="player-name">{name}</span>}
             <span className="player-symbol">{symbol}</span>
           </span>
-          <button onClick={() => setIsEditing(!isEditing)}>Edit</button>
+          <button onClick={() => setIsEditing(!isEditing)}>{isEditing ? 'Save' : 'Edit'}</button>
         </li>
     )
 }
