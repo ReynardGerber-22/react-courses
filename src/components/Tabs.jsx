@@ -1,8 +1,8 @@
-export const Tabs = ({children, buttons}) => {
+export const Tabs = ({children, buttons, ButtonsContainer}) => {
     return ( <>
-        <menu>
+        <ButtonsContainer>
         {buttons}
-        </menu>
+        </ButtonsContainer>
         {children}
     </>
     )
