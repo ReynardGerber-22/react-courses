@@ -3,10 +3,11 @@ export const Log = ({gameTurns}) => {
         <ol id="log">
             {gameTurns.map((turn) => {
                 let {row, col} = turn.square
-                return <li key={`${row}-${col}`}>
-                {turn.player} selected {row} , {col}
-                </li>
-               
+                return (
+                    <li key={`${row}-${col}`}>
+                        {turn.player} selected {row} , {col}
+                    </li>
+                )
             })}
         </ol>
     )
