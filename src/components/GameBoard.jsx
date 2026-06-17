@@ -25,7 +25,7 @@ export const GameBoard = ({ onSelectSquare, turns }) => {
                         {row.map((column, colIndex) => {
                             return (
                             <li key={colIndex}>
-                                <button onClick={() => onSelectSquare(index,colIndex)}>{column}</button>
+                                <button onClick={() => onSelectSquare(index,colIndex)} disabled={column != null}>{column}</button>
                             </li>
                             )
                         }
