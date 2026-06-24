@@ -3,6 +3,7 @@ import { GameBoard } from './components/GameBoard'
 import { useState } from 'react'
 import { Log } from "./components/Log"
 import { WINNING_COMBINATIONS } from './winning-combinations.js'
+import { GameOver } from './components/GameOver'
 
 function deriveActivePlayer(gameTurns) {
   let currentPlayer = 'X';
@@ -43,6 +44,8 @@ function App() {
     }
   }
 
+  const hasDraw = gameTurns.length === 9 && !winner
+
   function handleSelectSquare(row, col) {
     setGameTurns(prevTurns => {
       const currentPlayer = deriveActivePlayer(prevTurns);
@@ -60,7 +63,7 @@ function App() {
           <Player initialName="Player 1" symbol="X" isActive={activePlayer === "X"} />
           <Player initialName="Player 2" symbol="O" isActive={activePlayer === "O"} />
         </ol>
-        {winner && <p>You won {winner} !</p>}
+        {(winner || hasDraw) && <GameOver winner={winner}></GameOver>}
         <GameBoard board={gameBoard} onSelectSquare={handleSelectSquare} />
       </div>
       <Log gameTurns={gameTurns} />
