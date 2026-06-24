@@ -41,7 +41,7 @@ function App() {
     const thirdSquareSymbol = gameBoard[combination[2].row][combination[2].column]
 
     if (firstSquareSymbol && firstSquareSymbol === secondSquareSymbol && firstSquareSymbol === thirdSquareSymbol) {
-      winner = firstSquareSymbol;
+      winner = players[firstSquareSymbol];
     }
   }
 
@@ -68,6 +68,7 @@ function App() {
         [symbol]: newName
       }
     })
+    console.log(players);
   }
 
   return (
