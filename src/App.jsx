@@ -1,28 +1,13 @@
+import AuthInputs from './components/AuthInputs.jsx';
+import Header from './components/Header.jsx';
 
-import { Header } from './components/header/Header'
-import { InputComponent } from './components/input-component/InputComponent'
-import { Results } from './components/results/Results'
-import { calculateInvestmentResults } from "./util/investment.js"
-import { useState } from "react";
-
-function App() {
-
-  const [results, setResults] = useState([])
-  const [annualInvestment, setAnnualInvestment] = useState(0)
-
-  const handleInputChange = (values) => {
-    const value = calculateInvestmentResults(values);
-    setAnnualInvestment(values.annualInvestment)
-    setResults(value);
-  }
-
+export default function App() {
   return (
     <>
-     <Header title="React Investment Calculator" />   
-     <InputComponent onInputChange={handleInputChange} /> 
-     <Results results={results} annualInvestment={annualInvestment} />    
+      <Header />
+      <main>
+        <AuthInputs />
+      </main>
     </>
-  )
+  );
 }
-
-export default App
